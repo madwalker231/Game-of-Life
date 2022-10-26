@@ -44,6 +44,7 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     CountNeighborsFinite(x , y);
+                    CountNeighborsToroidal(x, y);
                     //Neightbor count logic for alive and dead cells
                     //int cout = NeighborCount
                     //apply rules for GOL
@@ -229,7 +230,7 @@ namespace GOLStartUpTemplate1
                     int xCheck = x + xOffset;
                     int yCheck = y + yOffset;
                     // if xOffset and yOffset are both equal to 0 then continue
-                    if (xOffset = 0 && yOffset = 0)
+                    if (xOffset <= 0 && yOffset <= 0)
                     {
                         continue;
                     }
@@ -256,10 +257,59 @@ namespace GOLStartUpTemplate1
 
                     if (universe[xCheck, yCheck] == true) count++;
                 }
+                graphicsPanel1.Invalidate();
             }
-            return xLen;
-            return yLen;
-            graphicsPanel1.Invalidate();
+            return count;
+            //graphicsPanel1.Invalidate();
+        }
+
+        private int CountNeighborsToroidal(int x, int y)
+        {
+            int count = 0;
+            int xLen = universe.GetLength(0);
+            int yLen = universe.GetLength(1);
+            for (int yOffset = -1; yOffset <= 1; yOffset++)
+            {
+                for (int xOffset = -1; xOffset <= 1; xOffset++)
+                {
+                    int xCheck = x + xOffset;
+                    int yCheck = y + yOffset;
+                    // if xOffset and yOffset are both equal to 0 then continue
+                    if (xOffset <= 0 && yOffset <= 0)
+                    {
+                        continue;
+                    }
+                    // if xCheck is less than 0 then set to xLen - 1
+                    if (xCheck < 0)
+                    {
+                        xLen = -1;
+                        continue;
+                    }
+                    // if yCheck is less than 0 then set to yLen - 1
+                    if (yCheck < 0)
+                    {
+                        yLen = -1;
+                        continue;
+                    }
+                    // if xCheck is greater than or equal too xLen then set to 0
+                    if (xCheck >= xLen)
+                    {
+                        xLen = 0;
+                        continue;
+                    }
+                    // if yCheck is greater than or equal too yLen then set to 0
+                    if (yCheck >= yLen)
+                    {
+                        yLen = 0;
+                        continue;
+                    }
+
+                    if (universe[xCheck, yCheck] == true) count++;
+                }
+                graphicsPanel1.Invalidate();
+            }
+            return count;
+            //graphicsPanel1.Invalidate();
         }
     }
 }
