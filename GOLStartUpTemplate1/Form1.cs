@@ -43,6 +43,7 @@ namespace GOLStartUpTemplate1
                 // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
+                    CountNeighborsFinite(x , y);
                     //Neightbor count logic for alive and dead cells
                     //int cout = NeighborCount
                     //apply rules for GOL
