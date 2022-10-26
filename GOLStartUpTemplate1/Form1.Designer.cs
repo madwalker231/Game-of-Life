@@ -352,7 +352,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.OliveDrab;
+            this.toolStrip1.BackColor = System.Drawing.Color.MediumPurple;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
