@@ -195,5 +195,25 @@ namespace GOLStartUpTemplate1
             }
             graphicsPanel1.Invalidate();
         }
+
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
