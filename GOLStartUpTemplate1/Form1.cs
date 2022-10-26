@@ -135,12 +135,12 @@ namespace GOLStartUpTemplate1
             }
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitButton(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewGridMenu(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
             {
@@ -153,7 +153,7 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.Invalidate();
         }
 
-        private void newToolStripButton_Click(object sender, EventArgs e)
+        private void NewToolBar(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
             {
@@ -166,24 +166,24 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.Invalidate();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void PlayButton(object sender, EventArgs e)
         {
             //Timer_Tick(this, EventArgs.Empty);
             NextGeneration();
             timer.Enabled = true;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void PauseButton(object sender, EventArgs e)
         {
             timer.Enabled = false;
         }
 
-        private void toolStrip1_Click(object sender, EventArgs e)
+        private void NextGenButton(object sender, EventArgs e)
         {
             Timer_Tick(this, EventArgs.Empty);
         }
 
-        private void resetGridToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ResetGrid(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
             {
