@@ -14,6 +14,7 @@ namespace GOLStartUpTemplate1
     {
         // The universe array
         bool[,] universe = new bool[15, 20];
+        bool[,] scratchPad = new bool[15, 20];
 
         // Drawing colors
         Color gridColor = Color.Black;
