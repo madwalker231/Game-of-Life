@@ -312,5 +312,29 @@ namespace GOLStartUpTemplate1
             return count;
             //graphicsPanel1.Invalidate();
         }
+
+        private void ToroidalGrid(object sender, EventArgs e)
+        {
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                // Iterate through the universe in the x, left to right
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    CountNeighborsToroidal(x, y);
+                }
+            }
+        }
+
+        private void FinniteGrid(object sender, EventArgs e)
+        {
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                // Iterate through the universe in the x, left to right
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    CountNeighborsFinite(x, y);
+                }
+            }
+        }
     }
 }

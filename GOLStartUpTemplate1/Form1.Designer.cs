@@ -177,37 +177,39 @@
             // hUDOnOffToolStripMenuItem
             // 
             this.hUDOnOffToolStripMenuItem.Name = "hUDOnOffToolStripMenuItem";
-            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hUDOnOffToolStripMenuItem.Text = "HUD On/Off";
             // 
             // heighborCountsToolStripMenuItem
             // 
             this.heighborCountsToolStripMenuItem.Name = "heighborCountsToolStripMenuItem";
-            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.heighborCountsToolStripMenuItem.Text = "Heighbor Count";
             // 
             // gridOnOffToolStripMenuItem
             // 
             this.gridOnOffToolStripMenuItem.Name = "gridOnOffToolStripMenuItem";
-            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridOnOffToolStripMenuItem.Text = "Grid On/Off";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toroidalGridToolStripMenuItem
             // 
             this.toroidalGridToolStripMenuItem.Name = "toroidalGridToolStripMenuItem";
-            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toroidalGridToolStripMenuItem.Text = "Toroidal Grid";
+            this.toroidalGridToolStripMenuItem.Click += new System.EventHandler(this.ToroidalGrid);
             // 
             // finniteGridToolStripMenuItem
             // 
             this.finniteGridToolStripMenuItem.Name = "finniteGridToolStripMenuItem";
-            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.finniteGridToolStripMenuItem.Text = "Finite Grid";
+            this.finniteGridToolStripMenuItem.Click += new System.EventHandler(this.finniteGridToolStripMenuItem_Click);
             // 
             // runGOLToolStripMenuItem
             // 
