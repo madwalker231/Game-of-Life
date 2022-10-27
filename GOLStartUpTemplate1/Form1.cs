@@ -39,6 +39,7 @@ namespace GOLStartUpTemplate1
         // Calculate the next generation of cells
         private void NextGeneration()
         {
+            Array.Clear(scratchPad, 0, scratchPad.Length);
             for (int y = 0; y < universe.GetLength(1); y++)
             {
                 // Iterate through the universe in the x, left to right
@@ -58,28 +59,28 @@ namespace GOLStartUpTemplate1
                     if (currentCell == true && neighbor < 2)
                     {
                         currentCell = false;
-                        //currentCell = scratchPad[x, y];
+                        currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        //continue;
+                        continue;
                     }
                     else if (currentCell == true && neighbor > 3)
                     {
                         currentCell = false;
-                        //currentCell = scratchPad[x, y];
+                        currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        //continue;
+                        continue;
                     }
                     else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         currentCell = true;
-                        //currentCell = scratchPad[x, y];
+                        currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        //continue;
+                        continue;
                     }
                     else if (currentCell == false && neighbor == 3)
                     {
                         currentCell = true;
-                        //currentCell = scratchPad[x, y];
+                        currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
                     }
                     //else
