@@ -89,7 +89,9 @@ namespace GOLStartUpTemplate1
                 }
             }
             //copy/swap from sctach pag to universe
-            scratchPad = universe;
+            bool[,] swap = universe;
+            universe = scratchPad;
+            scratchPad = swap;
 
             // Increment generation count
             generations++;
