@@ -54,30 +54,33 @@ namespace GOLStartUpTemplate1
 
                     //bool alive = true;
                     bool currentCell = universe[x, y];
-                    int neighbor = CountNeighborsToroidal(x, y);
+                    int neighbor = CountNeighborsFinite(x, y);
                     if (currentCell == true && neighbor < 2)
                     {
                         currentCell = false;
-                        scratchPad[x, y] = false;
+                        currentCell = scratchPad[x, y];
+                        scratchPad[x, y] = currentCell;
                         continue;
                     }
                     else if (currentCell == true && neighbor > 3)
                     {
                         currentCell = false;
-                        scratchPad[x, y] = false;
+                        currentCell = scratchPad[x, y];
+                        scratchPad[x, y] = currentCell;
                         continue;
                     }
                     else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         currentCell = true;
-                        scratchPad[x, y] = true;
+                        currentCell = scratchPad[x, y];
+                        scratchPad[x, y] = currentCell;
                         continue;
                     }
                     else if (currentCell == false && neighbor == 3)
                     {
                         currentCell = true;
-                        scratchPad[x, y] = true;
-                        continue;
+                        currentCell = scratchPad[x, y];
+                        scratchPad[x, y] = currentCell;
                     }
                     else
                     {
