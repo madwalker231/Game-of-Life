@@ -325,7 +325,7 @@ namespace GOLStartUpTemplate1
             }
         }
 
-        private void FinniteGrid(object sender, EventArgs e)
+        private void FiniteGrid(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
             {
