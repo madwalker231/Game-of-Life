@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,48 +45,24 @@ namespace GOLStartUpTemplate1
             {
                 // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
-                {
-                    //CountNeighborsFinite(x , y);
-                    //CountNeighborsToroidal(x, y);
-                    //Neightbor count logic for alive and dead cells
-                    //int cout = NeighborCount
-                    //apply rules for GOL
-                    //cells cant be turned on in the universe
-                    //cells only turned on and off in sctach pad.
-
-                    //bool alive = true;
+                {                   
                     bool currentCell = universe[x, y];
                     int neighbor = CountNeighborsFinite(x, y);
                     if (currentCell == true && neighbor < 2)
                     {
-                        currentCell = false;
-                        currentCell = scratchPad[x, y];
-                        scratchPad[x, y] = currentCell;
-                        continue;
+                        scratchPad.SetValue(false, x, y);
                     }
                     else if (currentCell == true && neighbor > 3)
                     {
-                        currentCell = false;
-                        currentCell = scratchPad[x, y];
-                        scratchPad[x, y] = currentCell;
-                        continue;
+                        scratchPad.SetValue(false, x, y);
                     }
                     else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
-                        currentCell = true;
-                        currentCell = scratchPad[x, y];
-                        scratchPad[x, y] = currentCell;
-                        continue;
+                        scratchPad.SetValue(true, x, y);
                     }
                     else if (currentCell == false && neighbor == 3)
                     {
-                        currentCell = true;
-                        currentCell = scratchPad[x, y];
-                        scratchPad[x, y] = currentCell;
-                    }
-                    else
-                    {
-                        scratchPad[x, y] = scratchPad[x, y];
+                        scratchPad.SetValue(true, x, y);
                     }
                 }
             }
@@ -212,8 +189,6 @@ namespace GOLStartUpTemplate1
 
         private void PlayButton(object sender, EventArgs e)
         {
-            //Timer_Tick(this, EventArgs.Empty);
-            NextGeneration();
             timer.Enabled = true;
         }
 
@@ -224,7 +199,7 @@ namespace GOLStartUpTemplate1
 
         private void NextGenButton(object sender, EventArgs e)
         {
-            Timer_Tick(this, EventArgs.Empty);
+            NextGeneration();
         }
 
         private void ResetGrid(object sender, EventArgs e)
@@ -299,10 +274,8 @@ namespace GOLStartUpTemplate1
 
                     if (universe[xCheck, yCheck] == true) count++;
                 }
-                graphicsPanel1.Invalidate();
             }
             return count;
-            //graphicsPanel1.Invalidate();
         }
 
         private int CountNeighborsToroidal(int x, int y)
@@ -348,10 +321,8 @@ namespace GOLStartUpTemplate1
 
                     if (universe[xCheck, yCheck] == true) count++;
                 }
-                graphicsPanel1.Invalidate();
             }
             return count;
-            //graphicsPanel1.Invalidate();
         }
 
         private void ToroidalGrid(object sender, EventArgs e)
@@ -377,7 +348,5 @@ namespace GOLStartUpTemplate1
                 }
             }
         }
-
-
     }
 }
