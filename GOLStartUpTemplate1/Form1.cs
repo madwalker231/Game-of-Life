@@ -58,34 +58,34 @@ namespace GOLStartUpTemplate1
                     if (currentCell == true && neighbor < 2)
                     {
                         currentCell = false;
-                        currentCell = scratchPad[x, y];
+                        //currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        continue;
+                        //continue;
                     }
                     else if (currentCell == true && neighbor > 3)
                     {
                         currentCell = false;
-                        currentCell = scratchPad[x, y];
+                        //currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        continue;
+                        //continue;
                     }
                     else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         currentCell = true;
-                        currentCell = scratchPad[x, y];
+                        //currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
-                        continue;
+                        //continue;
                     }
                     else if (currentCell == false && neighbor == 3)
                     {
                         currentCell = true;
-                        currentCell = scratchPad[x, y];
+                        //currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
                     }
-                    else
-                    {
-                        scratchPad[x, y] = scratchPad[x, y];
-                    }
+                    //else
+                    //{
+                    //    scratchPad[x, y] = scratchPad[x, y];
+                    //}
                 }
             }
             //copy/swap from sctach pag to universe
@@ -191,6 +191,7 @@ namespace GOLStartUpTemplate1
                     universe[x, y] = false;
                 }
             }
+            generations = 0;
             graphicsPanel1.Invalidate();
         }
 
@@ -204,6 +205,7 @@ namespace GOLStartUpTemplate1
                     universe[x, y] = false;
                 }
             }
+            generations = 0;
             graphicsPanel1.Invalidate();
         }
 
