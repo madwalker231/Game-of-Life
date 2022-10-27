@@ -52,25 +52,31 @@ namespace GOLStartUpTemplate1
                     //cells cant be turned on in the universe
                     //cells only turned on and off in sctach pad.
 
-                    bool alive = true;
-                    bool currentCell = scratchPad[x, y];
-                    int neighbor = CountNeighborsFinite(x, y);
-                    if (currentCell == alive && neighbor < 2)
+                    //bool alive = true;
+                    bool currentCell = universe[x, y];
+                    int neighbor = CountNeighborsToroidal(x, y);
+                    if (currentCell == true && neighbor < 2)
                     {
-                        alive = false;
-                        scratchPad[x, y] = alive;
+                        currentCell = false;
+                        scratchPad[x, y] = false;
                         continue;
                     }
-                    else if (currentCell == alive && neighbor > 3)
+                    else if (currentCell == true && neighbor > 3)
                     {
-                        alive = false;
-                        scratchPad[x, y] = alive;
+                        currentCell = false;
+                        scratchPad[x, y] = false;
                         continue;
                     }
-                    else if (currentCell != alive && neighbor == 2 || neighbor == 3)
+                    else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
-                        alive = true;
-                        scratchPad[x, y] = alive;
+                        currentCell = true;
+                        scratchPad[x, y] = true;
+                        continue;
+                    }
+                    else if (currentCell == false && neighbor == 3)
+                    {
+                        currentCell = true;
+                        scratchPad[x, y] = true;
                         continue;
                     }
                     else
