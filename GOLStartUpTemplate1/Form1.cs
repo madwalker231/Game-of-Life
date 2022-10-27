@@ -51,6 +51,29 @@ namespace GOLStartUpTemplate1
                     //apply rules for GOL
                     //cells cant be turned on in the universe
                     //cells only turned on and off in sctach pad.
+
+                    bool alive = true;
+                    bool currentCell = universe[x, y];
+                    int neighbor = 0;
+                    if (currentCell == alive && neighbor < 2)
+                    {
+                        alive = false;
+                        continue;
+                    }
+                    else if (currentCell == alive && neighbor > 3)
+                    {
+                        alive = false;
+                        continue;
+                    }
+                    else if (currentCell != alive && neighbor == 2 || neighbor == 3)
+                    {
+                        alive = true;
+                        continue;
+                    }
+                    else
+                    {
+                        universe[x, y] = currentCell;
+                    }
                 }
             }
             //copy/swap from sctach pag to universe
@@ -336,5 +359,33 @@ namespace GOLStartUpTemplate1
                 }
             }
         }
+
+        //private static GameOfLife(int x, int y)
+        //{
+        //    bool[,] scratchPad = new bool[15, 20];
+        //    for (int a = 1; a < 15 - 1; a ++)
+        //    {
+        //        for (int b = 1; b < 20 - 1; b ++)
+        //        {
+        //            int neighborAlive = 0;
+        //            for (int c = -1; c <= 1; c++)
+        //            {
+        //                for (int d = -1; d <= 1; d ++)
+        //                {
+        //                    neighborAlive += scratchPad[15 + c, 20 + d] == scratchPad.Alive ? 1 : 0;
+        //                }
+        //            }
+
+        //            bool alive = true;
+        //            bool currentCell = scratchPad[15, 20];
+        //            neighborAlive -= scratchPad == scratchPad.Alive ? 1 : 0;
+
+        //            if (currentCell == scratchPad.Alive && neighborAlive < 2)
+        //            {
+        //                alive = false;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }
