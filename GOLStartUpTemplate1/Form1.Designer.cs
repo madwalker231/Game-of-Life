@@ -354,7 +354,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.Color.MediumPurple;
+            this.toolStrip1.BackColor = System.Drawing.Color.Blue;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -407,7 +407,7 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::GOLStartUpTemplate1.Properties.Resources.Play_button;
+            this.toolStripButton1.Image = global::GOLStartUpTemplate1.Properties.Resources.Play_button_2;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);

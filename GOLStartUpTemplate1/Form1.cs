@@ -44,8 +44,8 @@ namespace GOLStartUpTemplate1
                 // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
-                    CountNeighborsFinite(x , y);
-                    CountNeighborsToroidal(x, y);
+                    //CountNeighborsFinite(x , y);
+                    //CountNeighborsToroidal(x, y);
                     //Neightbor count logic for alive and dead cells
                     //int cout = NeighborCount
                     //apply rules for GOL
@@ -53,31 +53,34 @@ namespace GOLStartUpTemplate1
                     //cells only turned on and off in sctach pad.
 
                     bool alive = true;
-                    bool currentCell = universe[x, y];
+                    bool currentCell = scratchPad[x, y];
                     int neighbor = 0;
                     if (currentCell == alive && neighbor < 2)
                     {
                         alive = false;
+                        scratchPad[x, y] = alive;
                         continue;
                     }
                     else if (currentCell == alive && neighbor > 3)
                     {
                         alive = false;
+                        scratchPad[x, y] = alive;
                         continue;
                     }
                     else if (currentCell != alive && neighbor == 2 || neighbor == 3)
                     {
                         alive = true;
+                        scratchPad[x, y] = alive;
                         continue;
                     }
                     else
                     {
-                        universe[x, y] = currentCell;
+                        scratchPad[x, y] = currentCell;
                     }
                 }
             }
             //copy/swap from sctach pag to universe
-
+            scratchPad = universe;
 
             // Increment generation count
             generations++;
@@ -86,6 +89,7 @@ namespace GOLStartUpTemplate1
             toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
 
             //call invalidate for play button.
+            graphicsPanel1.Invalidate();
         }
 
         // The event called by the timer every Interval milliseconds.
