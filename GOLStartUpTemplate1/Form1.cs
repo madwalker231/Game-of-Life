@@ -83,10 +83,10 @@ namespace GOLStartUpTemplate1
                         currentCell = scratchPad[x, y];
                         scratchPad[x, y] = currentCell;
                     }
-                    //else
-                    //{
-                    //    scratchPad[x, y] = scratchPad[x, y];
-                    //}
+                    else
+                    {
+                        scratchPad[x, y] = scratchPad[x, y];
+                    }
                 }
             }
             //copy/swap from sctach pag to universe
@@ -378,32 +378,6 @@ namespace GOLStartUpTemplate1
             }
         }
 
-        //private static GameOfLife(int x, int y)
-        //{
-        //    bool[,] scratchPad = new bool[15, 20];
-        //    for (int a = 1; a < 15 - 1; a ++)
-        //    {
-        //        for (int b = 1; b < 20 - 1; b ++)
-        //        {
-        //            int neighborAlive = 0;
-        //            for (int c = -1; c <= 1; c++)
-        //            {
-        //                for (int d = -1; d <= 1; d ++)
-        //                {
-        //                    neighborAlive += scratchPad[15 + c, 20 + d] == scratchPad.Alive ? 1 : 0;
-        //                }
-        //            }
 
-        //            bool alive = true;
-        //            bool currentCell = scratchPad[15, 20];
-        //            neighborAlive -= scratchPad == scratchPad.Alive ? 1 : 0;
-
-        //            if (currentCell == scratchPad.Alive && neighborAlive < 2)
-        //            {
-        //                alive = false;
-        //            }
-        //        }
-        //    }
-        //}
     }
 }
