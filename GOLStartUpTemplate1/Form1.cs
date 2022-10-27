@@ -54,7 +54,7 @@ namespace GOLStartUpTemplate1
 
                     bool alive = true;
                     bool currentCell = scratchPad[x, y];
-                    int neighbor = 0;
+                    int neighbor = CountNeighborsFinite(x, y);
                     if (currentCell == alive && neighbor < 2)
                     {
                         alive = false;
@@ -75,7 +75,7 @@ namespace GOLStartUpTemplate1
                     }
                     else
                     {
-                        scratchPad[x, y] = currentCell;
+                        scratchPad[x, y] = scratchPad[x, y];
                     }
                 }
             }
