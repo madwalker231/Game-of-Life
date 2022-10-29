@@ -14,8 +14,8 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[15, 20];
-        bool[,] scratchPad = new bool[15, 20];
+        bool[,] universe = new bool[50, 50];
+        bool[,] scratchPad = new bool[50, 50];
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -52,15 +52,15 @@ namespace GOLStartUpTemplate1
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    if (currentCell == true && neighbor > 3)
+                    else if (currentCell == true && neighbor > 3)
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    if (currentCell == true && neighbor == 2 || neighbor == 3)
+                    else if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
-                    if (currentCell == false && neighbor == 3)
+                    else if (currentCell == false && neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
@@ -92,9 +92,9 @@ namespace GOLStartUpTemplate1
             //change cell width and height to floats!!!!
             // Calculate the width and height of each cell in pixels
             // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
-            float cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
+            int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
             // CELL HEIGHT = WINDOW HEIGHT / NUMBER OF CELLS IN Y
-            float cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
+            int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
 
             // A Pen for drawing the grid lines (color, width)
             Pen gridPen = new Pen(gridColor, 1);
@@ -137,17 +137,17 @@ namespace GOLStartUpTemplate1
             if (e.Button == MouseButtons.Left)
             {
                 // Calculate the width and height of each cell in pixels
-                float cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
-                float cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
+                int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
+                int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
 
                 // Calculate the cell that was clicked in
                 // CELL X = MOUSE X / CELL WIDTH
-                float x = e.X / cellWidth;
+                int x = e.X / cellWidth;
                 // CELL Y = MOUSE Y / CELL HEIGHT
-                float y = e.Y / cellHeight;
+                int y = e.Y / cellHeight;
 
                 // Toggle the cell's state
-                universe[(int)x, (int)y] = !universe[(int)x, (int)y];
+                universe[x, y] = !universe[x, y];
 
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
@@ -167,9 +167,10 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     universe[x, y] = false;
+                    generations = 0;
+                    toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
                 }
             }
-            generations = 0;
             graphicsPanel1.Invalidate();
         }
 
@@ -181,9 +182,10 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     universe[x, y] = false;
+                    generations = 0;
+                    toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
                 }
             }
-            generations = 0;
             graphicsPanel1.Invalidate();
         }
 
@@ -298,25 +300,21 @@ namespace GOLStartUpTemplate1
                     if (xCheck < 0)
                     {
                         xLen = -1;
-                        continue;
                     }
                     // if yCheck is less than 0 then set to yLen - 1
                     if (yCheck < 0)
                     {
                         yLen = -1;
-                        continue;
                     }
                     // if xCheck is greater than or equal too xLen then set to 0
                     if (xCheck >= xLen)
                     {
                         xLen = 0;
-                        continue;
                     }
                     // if yCheck is greater than or equal too yLen then set to 0
                     if (yCheck >= yLen)
                     {
                         yLen = 0;
-                        continue;
                     }
 
                     if (universe[xCheck, yCheck] == true) count++;
