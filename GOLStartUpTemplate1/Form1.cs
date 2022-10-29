@@ -19,7 +19,7 @@ namespace GOLStartUpTemplate1
 
         // Drawing colors
         Color gridColor = Color.Black;
-        Color cellColor = Color.Gray;
+        Color cellColor = Color.Blue;
 
         // The Timer class
         Timer timer = new Timer();
@@ -45,22 +45,22 @@ namespace GOLStartUpTemplate1
             {
                 // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
-                {                   
+                {
                     bool currentCell = universe[x, y];
                     int neighbor = CountNeighborsFinite(x, y);
                     if (currentCell == true && neighbor < 2)
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    else if (currentCell == true && neighbor > 3)
+                    if (currentCell == true && neighbor > 3)
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    else if (currentCell == true && neighbor == 2 || neighbor == 3)
+                    if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
-                    else if (currentCell == false && neighbor == 3)
+                    if (currentCell == false && neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
@@ -247,7 +247,7 @@ namespace GOLStartUpTemplate1
                     int xCheck = x + xOffset;
                     int yCheck = y + yOffset;
                     // if xOffset and yOffset are both equal to 0 then continue
-                    if (xOffset <= 0 && yOffset <= 0)
+                    if (xOffset == 0 && yOffset == 0)
                     {
                         continue;
                     }
@@ -290,7 +290,7 @@ namespace GOLStartUpTemplate1
                     int xCheck = x + xOffset;
                     int yCheck = y + yOffset;
                     // if xOffset and yOffset are both equal to 0 then continue
-                    if (xOffset <= 0 && yOffset <= 0)
+                    if (xOffset == 0 && yOffset == 0)
                     {
                         continue;
                     }
