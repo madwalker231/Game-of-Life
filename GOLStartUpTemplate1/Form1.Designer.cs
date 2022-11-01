@@ -300,48 +300,49 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Background Color";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.backroundColorToolStripMenuItem_Click);
             // 
             // cellColorToolStripMenuItem
             // 
             this.cellColorToolStripMenuItem.Name = "cellColorToolStripMenuItem";
-            this.cellColorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.cellColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cellColorToolStripMenuItem.Text = "Cell Color";
             // 
             // gridColorToolStripMenuItem
             // 
             this.gridColorToolStripMenuItem.Name = "gridColorToolStripMenuItem";
-            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridColorToolStripMenuItem.Text = "Grid Color";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // optionsToolStripMenuItem1
             // 
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
-            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem1.Text = "Options";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // resetGridToolStripMenuItem
             // 
             this.resetGridToolStripMenuItem.Name = "resetGridToolStripMenuItem";
-            this.resetGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.resetGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetGridToolStripMenuItem.Text = "Reset Grid";
             this.resetGridToolStripMenuItem.Click += new System.EventHandler(this.ResetGrid);
             // 
             // reloadGridToolStripMenuItem
             // 
             this.reloadGridToolStripMenuItem.Name = "reloadGridToolStripMenuItem";
-            this.reloadGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.reloadGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reloadGridToolStripMenuItem.Text = "Reload Grid";
             // 
             // helpToolStripMenuItem
@@ -490,7 +491,7 @@
             this.colorsToolStripMenuItem,
             this.modalToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
             // 
             // colorsToolStripMenuItem
             // 
@@ -499,7 +500,7 @@
             this.gridColorToolStripMenuItem1,
             this.cellColorToolStripMenuItem1});
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
-            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.colorsToolStripMenuItem.Text = "Colors";
             // 
             // backroundColorToolStripMenuItem
@@ -518,7 +519,7 @@
             // modalToolStripMenuItem
             // 
             this.modalToolStripMenuItem.Name = "modalToolStripMenuItem";
-            this.modalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modalToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.modalToolStripMenuItem.Text = "Modal";
             // 
             // cellColorToolStripMenuItem1
