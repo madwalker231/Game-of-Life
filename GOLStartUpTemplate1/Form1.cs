@@ -14,8 +14,8 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[50, 60];
-        bool[,] scratchPad = new bool[50, 60];
+        bool[,] universe = new bool[50, 50];
+        bool[,] scratchPad = new bool[50, 50];
 
         // Drawing colors
         Color gridColor = Color.Black;
