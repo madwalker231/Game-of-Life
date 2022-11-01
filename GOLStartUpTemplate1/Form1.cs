@@ -360,5 +360,16 @@ namespace GOLStartUpTemplate1
             }
 
         }
+
+        private void gridColorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = gridColor;
+            if (DialogResult.OK == colorDialog.ShowDialog())
+            {
+                gridColor = colorDialog.Color;
+                graphicsPanel1.Invalidate();
+            }
+        }
     }
 }
