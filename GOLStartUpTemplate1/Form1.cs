@@ -14,8 +14,8 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[50, 50];
-        bool[,] scratchPad = new bool[50, 50];
+        bool[,] universe = new bool[50, 60];
+        bool[,] scratchPad = new bool[50, 60];
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -92,9 +92,9 @@ namespace GOLStartUpTemplate1
             //change cell width and height to floats!!!!
             // Calculate the width and height of each cell in pixels
             // CELL WIDTH = WINDOW WIDTH / NUMBER OF CELLS IN X
-            int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
+            float cellWidth = (float)graphicsPanel1.ClientSize.Width / universe.GetLength(0);
             // CELL HEIGHT = WINDOW HEIGHT / NUMBER OF CELLS IN Y
-            int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
+            float cellHeight = (float)graphicsPanel1.ClientSize.Height / universe.GetLength(1);
 
             // A Pen for drawing the grid lines (color, width)
             Pen gridPen = new Pen(gridColor, 1);
@@ -137,14 +137,14 @@ namespace GOLStartUpTemplate1
             if (e.Button == MouseButtons.Left)
             {
                 // Calculate the width and height of each cell in pixels
-                int cellWidth = graphicsPanel1.ClientSize.Width / universe.GetLength(0);
-                int cellHeight = graphicsPanel1.ClientSize.Height / universe.GetLength(1);
+                float cellWidth = (float)graphicsPanel1.ClientSize.Width / universe.GetLength(0);
+                float cellHeight = (float)graphicsPanel1.ClientSize.Height / universe.GetLength(1);
 
                 // Calculate the cell that was clicked in
                 // CELL X = MOUSE X / CELL WIDTH
-                int x = e.X / cellWidth;
+                int x = (int)(e.X / cellWidth);
                 // CELL Y = MOUSE Y / CELL HEIGHT
-                int y = e.Y / cellHeight;
+                int y = (int)(e.Y / cellHeight);
 
                 // Toggle the cell's state
                 universe[x, y] = !universe[x, y];
