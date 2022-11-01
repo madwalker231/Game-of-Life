@@ -169,6 +169,7 @@ namespace GOLStartUpTemplate1
                     universe[x, y] = false;
                     generations = 0;
                     toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+                    timer.Enabled = false;
                 }
             }
             graphicsPanel1.Invalidate();
@@ -184,6 +185,7 @@ namespace GOLStartUpTemplate1
                     universe[x, y] = false;
                     generations = 0;
                     toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+                    timer.Enabled = false;
                 }
             }
             graphicsPanel1.Invalidate();
