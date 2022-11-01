@@ -348,5 +348,17 @@ namespace GOLStartUpTemplate1
                 }
             }
         }
+
+        private void backroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = graphicsPanel1.BackColor;
+            if ( DialogResult.OK == colorDialog.ShowDialog())
+            {
+                graphicsPanel1.BackColor = colorDialog.Color;
+                graphicsPanel1.Invalidate();
+            }
+
+        }
     }
 }
