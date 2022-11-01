@@ -382,5 +382,19 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
+
+        private void modalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Options(object sender, EventArgs e)
+        {
+            OptionsMenu optionsMenu = new OptionsMenu();
+            if(DialogResult.OK == optionsMenu.ShowDialog())
+            {
+                optionsMenu.Show();
+            }
+        }
     }
 }
