@@ -36,7 +36,7 @@ namespace GOLStartUpTemplate1
             timer.Tick += Timer_Tick;
             timer.Enabled = false; // start timer running
         }
-
+        #region Next Gen Logic
         // Calculate the next generation of cells
         private void NextGeneration()
         {
@@ -80,13 +80,15 @@ namespace GOLStartUpTemplate1
             //call invalidate for play button.
             graphicsPanel1.Invalidate();
         }
-
+        #endregion
+        #region Timer Logic
         // The event called by the timer every Interval milliseconds.
         private void Timer_Tick(object sender, EventArgs e)
         {
             NextGeneration();
         }
-
+        #endregion
+        #region Grid Paint
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
             //change cell width and height to floats!!!!
@@ -130,7 +132,8 @@ namespace GOLStartUpTemplate1
             gridPen.Dispose();
             cellBrush.Dispose();
         }
-
+        #endregion
+        #region Cell Click
         private void graphicsPanel1_MouseClick(object sender, MouseEventArgs e)
         {
             // If the left mouse button was clicked
@@ -153,12 +156,14 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
-
+        #endregion
+        #region Exit Button
         private void ExitButton(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        #endregion
+        #region New File Buttons
         private void NewGridMenu(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
@@ -190,7 +195,22 @@ namespace GOLStartUpTemplate1
             }
             graphicsPanel1.Invalidate();
         }
-
+        #endregion
+        #region Reset Option
+        private void ResetGrid(object sender, EventArgs e)
+        {
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                // Iterate through the universe in the x, left to right
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    universe[x, y] = false;
+                }
+            }
+            graphicsPanel1.Invalidate();
+        }
+        #endregion
+        #region Play/Pause/NextGen buttons
         private void PlayButton(object sender, EventArgs e)
         {
             timer.Enabled = true;
@@ -205,20 +225,6 @@ namespace GOLStartUpTemplate1
         {
             NextGeneration();
         }
-
-        private void ResetGrid(object sender, EventArgs e)
-        {
-            for (int y = 0; y < universe.GetLength(1); y++)
-            {
-                // Iterate through the universe in the x, left to right
-                for (int x = 0; x < universe.GetLength(0); x++)
-                {
-                    universe[x, y] = false;
-                }
-            }
-            graphicsPanel1.Invalidate();
-        }
-
         private void PlayButtonMenu(object sender, EventArgs e)
         {
 
@@ -233,12 +239,12 @@ namespace GOLStartUpTemplate1
         {
 
         }
-
+        #endregion
         private void StopAtButtonMenu(object sender, EventArgs e)
         {
 
         }
-
+        #region Finite
         private int CountNeighborsFinite(int x, int y)
         {
             int count = 0;
@@ -281,7 +287,8 @@ namespace GOLStartUpTemplate1
             }
             return count;
         }
-
+        #endregion
+        #region Toroidal
         private int CountNeighborsToroidal(int x, int y)
         {
             int count = 0;
@@ -324,7 +331,8 @@ namespace GOLStartUpTemplate1
             }
             return count;
         }
-
+        #endregion 
+        #region Grid Toggle option
         private void ToroidalGrid(object sender, EventArgs e)
         {
             for (int y = 0; y < universe.GetLength(1); y++)
@@ -348,7 +356,8 @@ namespace GOLStartUpTemplate1
                 }
             }
         }
-
+        #endregion
+        #region Right Click Color
         private void backroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -371,7 +380,7 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
-
+        
         private void cellColorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -382,12 +391,13 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
+        #endregion
 
         private void modalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
         }
-
+        #region Option Menu
         private void Options(object sender, EventArgs e)
         {
             OptionsMenu optionsMenu = new OptionsMenu();
@@ -404,5 +414,6 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
+        #endregion
     }
 }
