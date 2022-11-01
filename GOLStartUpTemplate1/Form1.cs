@@ -391,9 +391,17 @@ namespace GOLStartUpTemplate1
         private void Options(object sender, EventArgs e)
         {
             OptionsMenu optionsMenu = new OptionsMenu();
+            //optionsMenu.GetHeight = universe.GetLength(1);
+            //optionsMenu.GetWidth = universe.GetLength(0);
+            //optionsMenu.SetTimer = timer.Interval;
             if(DialogResult.OK == optionsMenu.ShowDialog())
             {
-                optionsMenu.Show();
+                //bool[,] temp = new bool[optionsMenu.GetWidth, optionsMenu.UniverseHeight];
+                //bool[,] temp2 = new bool[optionsMenu.UniverseWidth, optionsMenu.UniverseHeight];
+                //scratchPad = temp;
+                //universe = temp2;
+                //timer.Interval = optionsMenu.SetTimer;
+                //graphicsPanel1.Invalidate();
             }
         }
     }

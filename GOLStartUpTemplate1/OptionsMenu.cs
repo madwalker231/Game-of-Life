@@ -16,5 +16,35 @@ namespace GOLStartUpTemplate1
         {
             InitializeComponent();
         }
+
+        public float GetWidth()
+        {
+            return (int)cellWidth.Value;
+        }
+
+        public void SetWidth(float width)
+        {
+            cellWidth.Value = (int)width;
+        }
+
+        public float GetHeight()
+        {
+            return (int)cellHeight.Value;
+        }
+
+        public void SetHeight(float height)
+        {
+            cellHeight.Value = (int)height;
+        }
+
+        public int GetTimer()
+        {
+            return (int)timerSetting.Value;
+        }
+
+        public void SetTimer(int time)
+        {
+            timerSetting.Value = time;
+        }
     }
 }
