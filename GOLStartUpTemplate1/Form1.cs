@@ -371,5 +371,16 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
+
+        private void cellColorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = cellColor;
+            if (DialogResult.OK == colorDialog.ShowDialog())
+            {
+                cellColor = colorDialog.Color;
+                graphicsPanel1.Invalidate();
+            }
+        }
     }
 }
