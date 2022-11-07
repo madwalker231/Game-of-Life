@@ -134,7 +134,7 @@
             this.MinimizeBox = false;
             this.Name = "OptionsMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Options";
             ((System.ComponentModel.ISupportInitialize)(this.cellWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cellHeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerSetting)).EndInit();
