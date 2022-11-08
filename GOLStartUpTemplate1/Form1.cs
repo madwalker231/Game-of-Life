@@ -211,8 +211,21 @@ namespace GOLStartUpTemplate1
                     universe[x, y] = false;
                 }
             }
+            Properties.Settings.Default.Reset();
+            graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
+            cellColor = Properties.Settings.Default.CellColor;
+            gridColor = Properties.Settings.Default.GridColor;
             graphicsPanel1.Invalidate();
         }
+        #region Reload Options
+        private void reloadGridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reload();
+            graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
+            cellColor = Properties.Settings.Default.CellColor;
+            gridColor = Properties.Settings.Default.GridColor;
+        }
+        #endregion
         #endregion
         #region Play/Pause/NextGen buttons
         private void PlayButton(object sender, EventArgs e)
@@ -420,10 +433,7 @@ namespace GOLStartUpTemplate1
         }
         #endregion
 
-        #region Setting
-
-        #endregion
-
+        #region User Setting Saves
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
@@ -431,5 +441,7 @@ namespace GOLStartUpTemplate1
             Properties.Settings.Default.GridColor = gridColor;
             Properties.Settings.Default.Save();
         }
+        #endregion
+
     }
 }

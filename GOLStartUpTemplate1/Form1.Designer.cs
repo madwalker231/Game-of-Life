@@ -194,37 +194,37 @@
             // hUDOnOffToolStripMenuItem
             // 
             this.hUDOnOffToolStripMenuItem.Name = "hUDOnOffToolStripMenuItem";
-            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.hUDOnOffToolStripMenuItem.Text = "HUD On/Off";
             // 
             // heighborCountsToolStripMenuItem
             // 
             this.heighborCountsToolStripMenuItem.Name = "heighborCountsToolStripMenuItem";
-            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.heighborCountsToolStripMenuItem.Text = "Heighbor Count";
             // 
             // gridOnOffToolStripMenuItem
             // 
             this.gridOnOffToolStripMenuItem.Name = "gridOnOffToolStripMenuItem";
-            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.gridOnOffToolStripMenuItem.Text = "Grid On/Off";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // toroidalGridToolStripMenuItem
             // 
             this.toroidalGridToolStripMenuItem.Name = "toroidalGridToolStripMenuItem";
-            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.toroidalGridToolStripMenuItem.Text = "Toroidal Grid";
             this.toroidalGridToolStripMenuItem.Click += new System.EventHandler(this.ToroidalGrid);
             // 
             // finniteGridToolStripMenuItem
             // 
             this.finniteGridToolStripMenuItem.Name = "finniteGridToolStripMenuItem";
-            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.finniteGridToolStripMenuItem.Text = "Finite Grid";
             this.finniteGridToolStripMenuItem.Click += new System.EventHandler(this.FiniteGrid);
             // 
@@ -305,53 +305,54 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Background Color";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.backroundColorToolStripMenuItem_Click);
             // 
             // cellColorToolStripMenuItem
             // 
             this.cellColorToolStripMenuItem.Name = "cellColorToolStripMenuItem";
-            this.cellColorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.cellColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cellColorToolStripMenuItem.Text = "Cell Color";
             this.cellColorToolStripMenuItem.Click += new System.EventHandler(this.cellColorToolStripMenuItem1_Click);
             // 
             // gridColorToolStripMenuItem
             // 
             this.gridColorToolStripMenuItem.Name = "gridColorToolStripMenuItem";
-            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridColorToolStripMenuItem.Text = "Grid Color";
             this.gridColorToolStripMenuItem.Click += new System.EventHandler(this.gridColorToolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // optionsToolStripMenuItem1
             // 
             this.optionsToolStripMenuItem1.Name = "optionsToolStripMenuItem1";
-            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.optionsToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.optionsToolStripMenuItem1.Text = "Options";
             this.optionsToolStripMenuItem1.Click += new System.EventHandler(this.Options);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // resetGridToolStripMenuItem
             // 
             this.resetGridToolStripMenuItem.Name = "resetGridToolStripMenuItem";
-            this.resetGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.resetGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resetGridToolStripMenuItem.Text = "Reset Grid";
             this.resetGridToolStripMenuItem.Click += new System.EventHandler(this.ResetGrid);
             // 
             // reloadGridToolStripMenuItem
             // 
             this.reloadGridToolStripMenuItem.Name = "reloadGridToolStripMenuItem";
-            this.reloadGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.reloadGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reloadGridToolStripMenuItem.Text = "Reload Grid";
+            this.reloadGridToolStripMenuItem.Click += new System.EventHandler(this.reloadGridToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
