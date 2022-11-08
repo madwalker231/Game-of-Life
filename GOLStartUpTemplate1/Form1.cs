@@ -19,7 +19,7 @@ namespace GOLStartUpTemplate1
 
         // Drawing colors
         Color gridColor = Color.Black;
-        Color cellColor = Color.Blue;
+        Color cellColor = Color.Gray;
 
         // The Timer class
         Timer timer = new Timer();
@@ -37,6 +37,8 @@ namespace GOLStartUpTemplate1
             timer.Enabled = false; // start timer running
 
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
+            cellColor = Properties.Settings.Default.CellColor;
+            gridColor = Properties.Settings.Default.GridColor;
         }
         #region Next Gen Logic
         // Calculate the next generation of cells
@@ -425,6 +427,8 @@ namespace GOLStartUpTemplate1
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
+            Properties.Settings.Default.CellColor = cellColor;
+            Properties.Settings.Default.GridColor = gridColor;
             Properties.Settings.Default.Save();
         }
     }
