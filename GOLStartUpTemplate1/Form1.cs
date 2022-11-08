@@ -52,15 +52,15 @@ namespace GOLStartUpTemplate1
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    else if (currentCell == true && neighbor > 3)
+                    if (currentCell == true && neighbor > 3)
                     {
                         scratchPad.SetValue(false, x, y);
                     }
-                    else if (currentCell == true && neighbor == 2 || neighbor == 3)
+                    if (currentCell == true && neighbor == 2 || neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
-                    else if (currentCell == false && neighbor == 3)
+                    if (currentCell == false && neighbor == 3)
                     {
                         scratchPad.SetValue(true, x, y);
                     }
