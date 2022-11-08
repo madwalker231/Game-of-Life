@@ -35,6 +35,8 @@ namespace GOLStartUpTemplate1
             timer.Interval = 100; // milliseconds
             timer.Tick += Timer_Tick;
             timer.Enabled = false; // start timer running
+
+            graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
         }
         #region Next Gen Logic
         // Calculate the next generation of cells
@@ -415,5 +417,15 @@ namespace GOLStartUpTemplate1
             }
         }
         #endregion
+
+        #region Setting
+
+        #endregion
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
+            Properties.Settings.Default.Save();
+        }
     }
 }
