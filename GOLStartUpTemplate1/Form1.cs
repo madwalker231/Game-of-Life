@@ -23,6 +23,7 @@ namespace GOLStartUpTemplate1
         int rando;
         int aliveCells;
         bool isFinite = true;
+        bool NeighborCountOn = true;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -105,6 +106,7 @@ namespace GOLStartUpTemplate1
             toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
             LivingCell();
 
+            
             //call invalidate for play button.
             graphicsPanel1.Invalidate();
         }
@@ -574,7 +576,7 @@ namespace GOLStartUpTemplate1
                 // Prefix all comment strings with an exclamation point.
                 // Use WriteLine to write the strings to the file. 
                 // It appends a CRLF for you.
-                writer.WriteLine("!Your saved univers.");
+                writer.WriteLine("!Your saved universe.");
 
                 // Iterate through the universe one row at a time.
                 for (int y = 0; y < universe.GetLength(1); y++)
@@ -726,6 +728,43 @@ namespace GOLStartUpTemplate1
 
         #endregion
 
-        
+        #region Cell Neighbor Count
+        private void heighborCountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NeighborCountOn = true;            
+        }
+
+        private void ViewNeighborCount(object sender, PaintEventArgs e)
+        {
+            if (NeighborCountOn == true)
+            {
+                Font font = new Font("Arial", 3f);
+
+                StringFormat stringFormat = new StringFormat();
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Center;
+
+                Rectangle cellRect = new Rectangle(0, 0, 100, 100);
+                for (int y = 0; y < universe.GetLength(1); y++)
+                {
+                    for (int x = 0; x < universe.GetLength(0); x++)
+                    {
+                        int group;
+                        if (isFinite)
+                        {
+                            group = CountNeighborsFinite(x, y);
+                        }
+                        else
+                        {
+                            group = CountNeighborsToroidal(x, y);
+                        }
+                        e.Graphics.DrawString(group.ToString(), font, Brushes.Black, cellRect, stringFormat);
+                    }
+                }
+            }
+            
+        }
+        #endregion
+
     }
 }

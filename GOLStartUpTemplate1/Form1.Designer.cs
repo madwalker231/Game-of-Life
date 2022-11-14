@@ -205,6 +205,7 @@ namespace GOLStartUpTemplate1
             // 
             // heighborCountsToolStripMenuItem
             // 
+            this.heighborCountsToolStripMenuItem.CheckOnClick = true;
             this.heighborCountsToolStripMenuItem.Name = "heighborCountsToolStripMenuItem";
             this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.heighborCountsToolStripMenuItem.Text = "Heighbor Count";
@@ -526,7 +527,7 @@ namespace GOLStartUpTemplate1
             this.colorsToolStripMenuItem,
             this.modalToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
             // 
             // colorsToolStripMenuItem
             // 
@@ -535,7 +536,7 @@ namespace GOLStartUpTemplate1
             this.gridColorToolStripMenuItem1,
             this.cellColorToolStripMenuItem1});
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
-            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.colorsToolStripMenuItem.Text = "Colors";
             // 
             // backroundColorToolStripMenuItem
@@ -568,38 +569,38 @@ namespace GOLStartUpTemplate1
             this.ToroidalRClick,
             this.FiniteRClick});
             this.modalToolStripMenuItem.Name = "modalToolStripMenuItem";
-            this.modalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modalToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.modalToolStripMenuItem.Text = "View";
             // 
             // hUDOnOffToolStripMenuItem1
             // 
             this.hUDOnOffToolStripMenuItem1.Name = "hUDOnOffToolStripMenuItem1";
-            this.hUDOnOffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.hUDOnOffToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.hUDOnOffToolStripMenuItem1.Text = "HUD On/Off";
             // 
             // neighborCountToolStripMenuItem
             // 
             this.neighborCountToolStripMenuItem.Name = "neighborCountToolStripMenuItem";
-            this.neighborCountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.neighborCountToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.neighborCountToolStripMenuItem.Text = "Neighbor Count";
             // 
             // gridOnOffToolStripMenuItem1
             // 
             this.gridOnOffToolStripMenuItem1.Name = "gridOnOffToolStripMenuItem1";
-            this.gridOnOffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gridOnOffToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.gridOnOffToolStripMenuItem1.Text = "Grid On/Off";
             // 
             // ToroidalRClick
             // 
             this.ToroidalRClick.Name = "ToroidalRClick";
-            this.ToroidalRClick.Size = new System.Drawing.Size(180, 22);
+            this.ToroidalRClick.Size = new System.Drawing.Size(160, 22);
             this.ToroidalRClick.Text = "Toroidal Grid";
             this.ToroidalRClick.Click += new System.EventHandler(this.ToroidalGrid_Click);
             // 
             // FiniteRClick
             // 
             this.FiniteRClick.Name = "FiniteRClick";
-            this.FiniteRClick.Size = new System.Drawing.Size(180, 22);
+            this.FiniteRClick.Size = new System.Drawing.Size(160, 22);
             this.FiniteRClick.Text = "Finite Grid";
             this.FiniteRClick.Click += new System.EventHandler(this.FiniteGrid_Click);
             // 
