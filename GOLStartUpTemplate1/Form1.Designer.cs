@@ -526,7 +526,7 @@ namespace GOLStartUpTemplate1
             this.colorsToolStripMenuItem,
             this.modalToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // colorsToolStripMenuItem
             // 
@@ -594,12 +594,14 @@ namespace GOLStartUpTemplate1
             this.ToroidalRClick.Name = "ToroidalRClick";
             this.ToroidalRClick.Size = new System.Drawing.Size(180, 22);
             this.ToroidalRClick.Text = "Toroidal Grid";
+            this.ToroidalRClick.Click += new System.EventHandler(this.ToroidalGrid_Click);
             // 
             // FiniteRClick
             // 
             this.FiniteRClick.Name = "FiniteRClick";
             this.FiniteRClick.Size = new System.Drawing.Size(180, 22);
             this.FiniteRClick.Text = "Finite Grid";
+            this.FiniteRClick.Click += new System.EventHandler(this.FiniteGrid_Click);
             // 
             // graphicsPanel1
             // 
