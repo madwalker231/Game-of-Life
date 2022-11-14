@@ -29,7 +29,7 @@ namespace GOLStartUpTemplate1
             set { cellHeight.Value = value; }
         }
 
-        public int Timer
+        public int TimerSetting
         {
             get { return (int)timerSetting.Value; }
             set { timerSetting.Value = value; }

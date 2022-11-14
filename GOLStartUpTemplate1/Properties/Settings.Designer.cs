@@ -58,5 +58,41 @@ namespace GOLStartUpTemplate1.Properties {
                 this["GridColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int GridWidth {
+            get {
+                return ((int)(this["GridWidth"]));
+            }
+            set {
+                this["GridWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int GridHeight {
+            get {
+                return ((int)(this["GridHeight"]));
+            }
+            set {
+                this["GridHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int TimeSet {
+            get {
+                return ((int)(this["TimeSet"]));
+            }
+            set {
+                this["TimeSet"] = value;
+            }
+        }
     }
 }

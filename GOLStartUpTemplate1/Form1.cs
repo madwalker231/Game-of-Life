@@ -39,6 +39,9 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
+            Height = Properties.Settings.Default.GridHeight;
+            Width = Properties.Settings.Default.GridWidth;
+            //optionsMenu.TimerSetting = Properties.Settings.Default.TimeSet;
         }
         #region Next Gen Logic
         // Calculate the next generation of cells
@@ -215,8 +218,10 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
+            Height = Properties.Settings.Default.GridHeight;
             graphicsPanel1.Invalidate();
         }
+        #endregion
         #region Reload Options
         private void reloadGridToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -225,7 +230,6 @@ namespace GOLStartUpTemplate1
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
         }
-        #endregion
         #endregion
         #region Play/Pause/NextGen buttons
         private void PlayButton(object sender, EventArgs e)
@@ -420,14 +424,14 @@ namespace GOLStartUpTemplate1
             OptionsMenu optionsMenu = new OptionsMenu();
             optionsMenu.Height = universe.GetLength(1);
             optionsMenu.Width = universe.GetLength(0);
-            optionsMenu.Timer = timer.Interval;
+            optionsMenu.TimerSetting = timer.Interval;
             if (DialogResult.OK == optionsMenu.ShowDialog())
             {
                 bool[,] temp = new bool[optionsMenu.Width, optionsMenu.Height];
                 bool[,] temp2 = new bool[optionsMenu.Width, optionsMenu.Height];
                 scratchPad = temp;
                 universe = temp2;
-                timer.Interval = optionsMenu.Timer;
+                timer.Interval = optionsMenu.TimerSetting;
                 graphicsPanel1.Invalidate();
             }
         }
@@ -439,6 +443,9 @@ namespace GOLStartUpTemplate1
             Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
             Properties.Settings.Default.CellColor = cellColor;
             Properties.Settings.Default.GridColor = gridColor;
+            Properties.Settings.Default.GridHeight = Height;
+            Properties.Settings.Default.GridWidth = Width;
+            //Properties.Settings.Default.TimeSet = TimerSetting;
             Properties.Settings.Default.Save();
         }
         #endregion
