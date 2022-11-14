@@ -278,14 +278,15 @@
             // seedOptionsToolStripMenuItem
             // 
             this.seedOptionsToolStripMenuItem.Name = "seedOptionsToolStripMenuItem";
-            this.seedOptionsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.seedOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.seedOptionsToolStripMenuItem.Text = "Seed Options";
             // 
             // randomizeToolStripMenuItem
             // 
             this.randomizeToolStripMenuItem.Name = "randomizeToolStripMenuItem";
-            this.randomizeToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.randomizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.randomizeToolStripMenuItem.Text = "Randomize";
+            this.randomizeToolStripMenuItem.Click += new System.EventHandler(this.RandomizeTool);
             // 
             // settingsToolStripMenuItem
             // 

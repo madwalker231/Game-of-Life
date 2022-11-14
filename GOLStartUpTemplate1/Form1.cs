@@ -14,7 +14,7 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[50, 50];
+        bool[,] universe = new bool[50, 55];
         bool[,] scratchPad = new bool[50, 50];
         int uWidth;
         int uHeight;
@@ -475,5 +475,23 @@ namespace GOLStartUpTemplate1
         }
         #endregion
 
+        #region Random
+        private void RandomizeTool(object sender, EventArgs e)
+        {
+            Random randy = new Random(4);
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                // Iterate through the universe in the x, left to right
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    randy.Next(0, 2);
+                    if(randy.Next() == 0) 
+                    {
+                        graphicsPanel1.Invalidate();
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }
