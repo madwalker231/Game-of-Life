@@ -16,6 +16,8 @@ namespace GOLStartUpTemplate1
         // The universe array
         bool[,] universe = new bool[50, 50];
         bool[,] scratchPad = new bool[50, 50];
+        int uWidth;
+        int uHeight;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -39,8 +41,11 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
-            Height = Properties.Settings.Default.GridHeight;
-            Width = Properties.Settings.Default.GridWidth;
+            uHeight = Properties.Settings.Default.GridHeight;
+            uWidth = Properties.Settings.Default.GridWidth;
+            bool[,] tempGrid = new bool[uWidth, uHeight];
+            universe = tempGrid;
+            scratchPad = tempGrid;
             //optionsMenu.TimerSetting = Properties.Settings.Default.TimeSet;
         }
         #region Next Gen Logic
@@ -88,6 +93,7 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.Invalidate();
         }
         #endregion
+
         #region Timer Logic
         // The event called by the timer every Interval milliseconds.
         private void Timer_Tick(object sender, EventArgs e)
@@ -95,6 +101,7 @@ namespace GOLStartUpTemplate1
             NextGeneration();
         }
         #endregion
+
         #region Grid Paint
         private void graphicsPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -140,6 +147,7 @@ namespace GOLStartUpTemplate1
             cellBrush.Dispose();
         }
         #endregion
+
         #region Cell Click
         private void graphicsPanel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -164,12 +172,14 @@ namespace GOLStartUpTemplate1
             }
         }
         #endregion
+
         #region Exit Button
         private void ExitButton(object sender, EventArgs e)
         {
             this.Close();
         }
         #endregion
+
         #region New File Buttons
         private void NewGridMenu(object sender, EventArgs e)
         {
@@ -203,6 +213,7 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.Invalidate();
         }
         #endregion
+
         #region Reset Option
         private void ResetGrid(object sender, EventArgs e)
         {
@@ -218,10 +229,16 @@ namespace GOLStartUpTemplate1
             graphicsPanel1.BackColor = Properties.Settings.Default.PanelColor;
             cellColor = Properties.Settings.Default.CellColor;
             gridColor = Properties.Settings.Default.GridColor;
-            Height = Properties.Settings.Default.GridHeight;
+            uHeight = Properties.Settings.Default.GridHeight;
+            uWidth = Properties.Settings.Default.GridWidth;
+            bool[,] resetGrid = new bool[uWidth, uHeight];
+            bool[,] resetGrid2 = new bool[uWidth, uHeight];
+            universe = resetGrid;
+            scratchPad = resetGrid2;
             graphicsPanel1.Invalidate();
         }
         #endregion
+
         #region Reload Options
         private void reloadGridToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -231,6 +248,7 @@ namespace GOLStartUpTemplate1
             gridColor = Properties.Settings.Default.GridColor;
         }
         #endregion
+
         #region Play/Pause/NextGen buttons
         private void PlayButton(object sender, EventArgs e)
         {
@@ -261,6 +279,7 @@ namespace GOLStartUpTemplate1
 
         }
         #endregion
+
         private void StopAtButtonMenu(object sender, EventArgs e)
         {
 
@@ -309,6 +328,7 @@ namespace GOLStartUpTemplate1
             return count;
         }
         #endregion
+
         #region Toroidal
         private int CountNeighborsToroidal(int x, int y)
         {
@@ -353,6 +373,7 @@ namespace GOLStartUpTemplate1
             return count;
         }
         #endregion 
+
         #region Grid Toggle option
         private void ToroidalGrid(object sender, EventArgs e)
         {
@@ -378,6 +399,7 @@ namespace GOLStartUpTemplate1
             }
         }
         #endregion
+
         #region Right Click Color
         private void backroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -418,6 +440,7 @@ namespace GOLStartUpTemplate1
         {
             
         }
+
         #region Option Menu
         private void Options(object sender, EventArgs e)
         {
@@ -431,6 +454,8 @@ namespace GOLStartUpTemplate1
                 bool[,] temp2 = new bool[optionsMenu.Width, optionsMenu.Height];
                 scratchPad = temp;
                 universe = temp2;
+                uWidth = optionsMenu.Width;
+                uHeight = optionsMenu.Height;
                 timer.Interval = optionsMenu.TimerSetting;
                 graphicsPanel1.Invalidate();
             }
@@ -443,8 +468,8 @@ namespace GOLStartUpTemplate1
             Properties.Settings.Default.PanelColor = graphicsPanel1.BackColor;
             Properties.Settings.Default.CellColor = cellColor;
             Properties.Settings.Default.GridColor = gridColor;
-            Properties.Settings.Default.GridHeight = Height;
-            Properties.Settings.Default.GridWidth = Width;
+            Properties.Settings.Default.GridHeight = uHeight;
+            Properties.Settings.Default.GridWidth = uWidth;
             //Properties.Settings.Default.TimeSet = TimerSetting;
             Properties.Settings.Default.Save();
         }
