@@ -94,6 +94,7 @@ namespace GOLStartUpTemplate1
             this.toroidalGridToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.finiteGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.graphicsPanel1 = new GOLStartUpTemplate1.GraphicsPanel();
+            this.LivingCells = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -136,7 +137,7 @@ namespace GOLStartUpTemplate1
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.NewGridMenu);
             // 
@@ -146,14 +147,14 @@ namespace GOLStartUpTemplate1
             this.OpenFileButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.OpenFileButton.Name = "OpenFileButton";
             this.OpenFileButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OpenFileButton.Size = new System.Drawing.Size(180, 22);
+            this.OpenFileButton.Size = new System.Drawing.Size(146, 22);
             this.OpenFileButton.Text = "&Open";
             this.OpenFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -161,25 +162,25 @@ namespace GOLStartUpTemplate1
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SafeFileButton);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitButton);
             // 
@@ -199,37 +200,37 @@ namespace GOLStartUpTemplate1
             // hUDOnOffToolStripMenuItem
             // 
             this.hUDOnOffToolStripMenuItem.Name = "hUDOnOffToolStripMenuItem";
-            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hUDOnOffToolStripMenuItem.Text = "HUD On/Off";
             // 
             // heighborCountsToolStripMenuItem
             // 
             this.heighborCountsToolStripMenuItem.Name = "heighborCountsToolStripMenuItem";
-            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.heighborCountsToolStripMenuItem.Text = "Heighbor Count";
             // 
             // gridOnOffToolStripMenuItem
             // 
             this.gridOnOffToolStripMenuItem.Name = "gridOnOffToolStripMenuItem";
-            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridOnOffToolStripMenuItem.Text = "Grid On/Off";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // toroidalGridToolStripMenuItem
             // 
             this.toroidalGridToolStripMenuItem.Name = "toroidalGridToolStripMenuItem";
-            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toroidalGridToolStripMenuItem.Text = "Toroidal Grid";
             this.toroidalGridToolStripMenuItem.Click += new System.EventHandler(this.ToroidalGrid);
             // 
             // finniteGridToolStripMenuItem
             // 
             this.finniteGridToolStripMenuItem.Name = "finniteGridToolStripMenuItem";
-            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.finniteGridToolStripMenuItem.Text = "Finite Grid";
             this.finniteGridToolStripMenuItem.Click += new System.EventHandler(this.FiniteGrid);
             // 
@@ -497,7 +498,8 @@ namespace GOLStartUpTemplate1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.Lime;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelGenerations});
+            this.toolStripStatusLabelGenerations,
+            this.LivingCells});
             this.statusStrip1.Location = new System.Drawing.Point(0, 525);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(698, 22);
@@ -603,6 +605,12 @@ namespace GOLStartUpTemplate1
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
             // 
+            // LivingCells
+            // 
+            this.LivingCells.Name = "LivingCells";
+            this.LivingCells.Size = new System.Drawing.Size(130, 17);
+            this.LivingCells.Text = "Current Living Cells = 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,6 +702,7 @@ namespace GOLStartUpTemplate1
         private System.Windows.Forms.ToolStripMenuItem finiteGridToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RandoTime;
         private System.Windows.Forms.ToolStripMenuItem RandoSeed;
+        private System.Windows.Forms.ToolStripStatusLabel LivingCells;
     }
 }
 

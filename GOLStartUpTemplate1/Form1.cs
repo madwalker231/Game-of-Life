@@ -16,11 +16,12 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[50, 55];
+        bool[,] universe = new bool[50, 50];
         bool[,] scratchPad = new bool[50, 50];
         int uWidth;
         int uHeight;
         int rando;
+        int aliveCells;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -47,8 +48,9 @@ namespace GOLStartUpTemplate1
             uHeight = Properties.Settings.Default.GridHeight;
             uWidth = Properties.Settings.Default.GridWidth;
             bool[,] tempGrid = new bool[uWidth, uHeight];
+            bool[,] tempGrid2 = new bool[uWidth, uHeight];
             universe = tempGrid;
-            //scratchPad = tempGrid;
+            scratchPad = tempGrid2;
             //optionsMenu.TimerSetting = Properties.Settings.Default.TimeSet;
         }
         #region Next Gen Logic
@@ -91,6 +93,7 @@ namespace GOLStartUpTemplate1
 
             // Update status strip generations
             toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+            LivingCell();
 
             //call invalidate for play button.
             graphicsPanel1.Invalidate();
@@ -169,6 +172,8 @@ namespace GOLStartUpTemplate1
 
                 // Toggle the cell's state
                 universe[x, y] = !universe[x, y];
+
+                LivingCell();
 
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
@@ -692,5 +697,27 @@ namespace GOLStartUpTemplate1
 
         }
         #endregion
+
+        #region Cell Count
+        private void LivingCell()
+        {
+            int livingCell = aliveCells;
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    if (universe[x,y] == true)
+                    {
+                        livingCell++;
+                    }
+                }
+            }
+            aliveCells = livingCell;
+            LivingCells.Text = "Current Living Cells = " + aliveCells.ToString();
+            aliveCells = aliveCells - aliveCells;
+        }
+        #endregion
+
+
     }
 }
