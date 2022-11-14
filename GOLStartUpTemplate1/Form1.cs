@@ -18,6 +18,7 @@ namespace GOLStartUpTemplate1
         bool[,] scratchPad = new bool[50, 50];
         int uWidth;
         int uHeight;
+        int rando;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -481,7 +482,6 @@ namespace GOLStartUpTemplate1
             Random randy = new Random(4);
             for (int y = 0; y < universe.GetLength(1); y++)
             {
-                // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     randy.Next(0, 2);
@@ -492,6 +492,68 @@ namespace GOLStartUpTemplate1
                 }
             }
         }
+
+        private void RandomTime()
+        {
+            Random randyTime = new Random();
+            int a;
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    a = randyTime.Next(0, 2);
+                    if (a == 0) 
+                    {
+                        universe.SetValue(true, x, y);
+                    }
+                    else
+                    {
+                        universe.SetValue(false, x, y);
+                    }
+                }
+            }
+        }
+
+        private void RandomSeed ()
+        {
+            Random randySeed = new Random(rando);
+            int a;
+            for (int y = 0; y < universe.GetLength(1); y++)
+            {
+                for (int x = 0; x < universe.GetLength(0); x++)
+                {
+                    a = randySeed.Next(0, 2);
+                    if (a == 0)
+                    {
+                        universe.SetValue(true, x, y);
+                    }
+                    else
+                    {
+                        universe.SetValue(false, x, y);
+                    }
+                }
+            }
+        }
+
+        private void RandoTime_Click(object sender, EventArgs e)
+        {
+            RandomTime();
+            graphicsPanel1.Invalidate();
+        }
+
+        private void RandoSeed_Click(object sender, EventArgs e)
+        {
+            RandomBox seeds = new RandomBox();
+            seeds.Random = rando;
+            if (DialogResult.OK == seeds.ShowDialog()) 
+            {
+                rando = seeds.Random;
+                RandomSeed();
+                graphicsPanel1.Invalidate();
+            }
+        }
         #endregion
+
+
     }
 }
