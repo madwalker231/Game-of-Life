@@ -281,10 +281,6 @@ namespace GOLStartUpTemplate1
         }
         #endregion
 
-        private void StopAtButtonMenu(object sender, EventArgs e)
-        {
-
-        }
         #region Finite
         private int CountNeighborsFinite(int x, int y)
         {
@@ -436,11 +432,6 @@ namespace GOLStartUpTemplate1
             }
         }
         #endregion
-
-        private void modalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         #region Option Menu
         private void Options(object sender, EventArgs e)
