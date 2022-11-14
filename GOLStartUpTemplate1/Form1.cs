@@ -22,6 +22,7 @@ namespace GOLStartUpTemplate1
         int uHeight;
         int rando;
         int aliveCells;
+        bool isFinite = true;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -63,8 +64,17 @@ namespace GOLStartUpTemplate1
                 // Iterate through the universe in the x, left to right
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
+                    int neighbor;
+                    if(isFinite)
+                    {
+                        neighbor = CountNeighborsFinite(x, y);
+                    }
+                    else
+                    {
+                        neighbor = CountNeighborsToroidal(x, y);
+                    }
                     bool currentCell = universe[x, y];
-                    int neighbor = CountNeighborsFinite(x, y);
+                    
                     if (currentCell == true && neighbor < 2)
                     {
                         scratchPad.SetValue(false, x, y);
@@ -353,22 +363,22 @@ namespace GOLStartUpTemplate1
                     // if xCheck is less than 0 then set to xLen - 1
                     if (xCheck < 0)
                     {
-                        xLen = -1;
+                        xCheck = xLen - 1;
                     }
                     // if yCheck is less than 0 then set to yLen - 1
                     if (yCheck < 0)
                     {
-                        yLen = -1;
+                        yCheck = yLen - 1;
                     }
                     // if xCheck is greater than or equal too xLen then set to 0
                     if (xCheck >= xLen)
                     {
-                        xLen = 0;
+                        xCheck = 0;
                     }
                     // if yCheck is greater than or equal too yLen then set to 0
                     if (yCheck >= yLen)
                     {
-                        yLen = 0;
+                        yCheck = 0;
                     }
 
                     if (universe[xCheck, yCheck] == true) count++;
@@ -379,28 +389,24 @@ namespace GOLStartUpTemplate1
         #endregion 
 
         #region Grid Toggle option
-        private void ToroidalGrid(object sender, EventArgs e)
+        private void ToroidalGrid_Click(object sender, EventArgs e)
         {
-            for (int y = 0; y < universe.GetLength(1); y++)
-            {
-                // Iterate through the universe in the x, left to right
-                for (int x = 0; x < universe.GetLength(0); x++)
-                {
-                    CountNeighborsToroidal(x, y);
-                }
-            }
+            isFinite = false;
+            FiniteGrid.Checked = false;
+            FiniteRClick.Checked = false;
+            ToroidalGrid.Checked = true;
+            ToroidalRClick.Checked = true;
+            graphicsPanel1.Invalidate();
         }
 
-        private void FiniteGrid(object sender, EventArgs e)
+        private void FiniteGrid_Click(object sender, EventArgs e)
         {
-            for (int y = 0; y < universe.GetLength(1); y++)
-            {
-                // Iterate through the universe in the x, left to right
-                for (int x = 0; x < universe.GetLength(0); x++)
-                {
-                    CountNeighborsFinite(x, y);
-                }
-            }
+            isFinite = true;
+            FiniteGrid.Checked = true;
+            FiniteRClick.Checked = true;
+            ToroidalGrid.Checked = false;
+            ToroidalRClick.Checked = false;
+            graphicsPanel1.Invalidate();
         }
         #endregion
 
@@ -716,8 +722,10 @@ namespace GOLStartUpTemplate1
             LivingCells.Text = "Current Living Cells = " + aliveCells.ToString();
             aliveCells = aliveCells - aliveCells;
         }
+
+
         #endregion
 
-
+        
     }
 }

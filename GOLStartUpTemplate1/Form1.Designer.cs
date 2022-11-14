@@ -46,8 +46,8 @@ namespace GOLStartUpTemplate1
             this.heighborCountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridOnOffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toroidalGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.finniteGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToroidalGrid = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiniteGrid = new System.Windows.Forms.ToolStripMenuItem();
             this.runGOLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +82,7 @@ namespace GOLStartUpTemplate1
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelGenerations = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LivingCells = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.colorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,10 +92,9 @@ namespace GOLStartUpTemplate1
             this.hUDOnOffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.neighborCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridOnOffToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toroidalGridToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.finiteGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToroidalRClick = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiniteRClick = new System.Windows.Forms.ToolStripMenuItem();
             this.graphicsPanel1 = new GOLStartUpTemplate1.GraphicsPanel();
-            this.LivingCells = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -191,8 +191,8 @@ namespace GOLStartUpTemplate1
             this.heighborCountsToolStripMenuItem,
             this.gridOnOffToolStripMenuItem,
             this.toolStripSeparator1,
-            this.toroidalGridToolStripMenuItem,
-            this.finniteGridToolStripMenuItem});
+            this.ToroidalGrid,
+            this.FiniteGrid});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -220,19 +220,21 @@ namespace GOLStartUpTemplate1
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
-            // toroidalGridToolStripMenuItem
+            // ToroidalGrid
             // 
-            this.toroidalGridToolStripMenuItem.Name = "toroidalGridToolStripMenuItem";
-            this.toroidalGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toroidalGridToolStripMenuItem.Text = "Toroidal Grid";
-            this.toroidalGridToolStripMenuItem.Click += new System.EventHandler(this.ToroidalGrid);
+            this.ToroidalGrid.CheckOnClick = true;
+            this.ToroidalGrid.Name = "ToroidalGrid";
+            this.ToroidalGrid.Size = new System.Drawing.Size(180, 22);
+            this.ToroidalGrid.Text = "Toroidal Grid";
+            this.ToroidalGrid.Click += new System.EventHandler(this.ToroidalGrid_Click);
             // 
-            // finniteGridToolStripMenuItem
+            // FiniteGrid
             // 
-            this.finniteGridToolStripMenuItem.Name = "finniteGridToolStripMenuItem";
-            this.finniteGridToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.finniteGridToolStripMenuItem.Text = "Finite Grid";
-            this.finniteGridToolStripMenuItem.Click += new System.EventHandler(this.FiniteGrid);
+            this.FiniteGrid.CheckOnClick = true;
+            this.FiniteGrid.Name = "FiniteGrid";
+            this.FiniteGrid.Size = new System.Drawing.Size(180, 22);
+            this.FiniteGrid.Text = "Finite Grid";
+            this.FiniteGrid.Click += new System.EventHandler(this.FiniteGrid_Click);
             // 
             // runGOLToolStripMenuItem
             // 
@@ -512,6 +514,12 @@ namespace GOLStartUpTemplate1
             this.toolStripStatusLabelGenerations.Size = new System.Drawing.Size(90, 17);
             this.toolStripStatusLabelGenerations.Text = "Generations = 0";
             // 
+            // LivingCells
+            // 
+            this.LivingCells.Name = "LivingCells";
+            this.LivingCells.Size = new System.Drawing.Size(130, 17);
+            this.LivingCells.Text = "Current Living Cells = 0";
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -527,7 +535,7 @@ namespace GOLStartUpTemplate1
             this.gridColorToolStripMenuItem1,
             this.cellColorToolStripMenuItem1});
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
-            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.colorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.colorsToolStripMenuItem.Text = "Colors";
             // 
             // backroundColorToolStripMenuItem
@@ -557,41 +565,41 @@ namespace GOLStartUpTemplate1
             this.hUDOnOffToolStripMenuItem1,
             this.neighborCountToolStripMenuItem,
             this.gridOnOffToolStripMenuItem1,
-            this.toroidalGridToolStripMenuItem1,
-            this.finiteGridToolStripMenuItem});
+            this.ToroidalRClick,
+            this.FiniteRClick});
             this.modalToolStripMenuItem.Name = "modalToolStripMenuItem";
-            this.modalToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.modalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modalToolStripMenuItem.Text = "View";
             // 
             // hUDOnOffToolStripMenuItem1
             // 
             this.hUDOnOffToolStripMenuItem1.Name = "hUDOnOffToolStripMenuItem1";
-            this.hUDOnOffToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.hUDOnOffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.hUDOnOffToolStripMenuItem1.Text = "HUD On/Off";
             // 
             // neighborCountToolStripMenuItem
             // 
             this.neighborCountToolStripMenuItem.Name = "neighborCountToolStripMenuItem";
-            this.neighborCountToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.neighborCountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.neighborCountToolStripMenuItem.Text = "Neighbor Count";
             // 
             // gridOnOffToolStripMenuItem1
             // 
             this.gridOnOffToolStripMenuItem1.Name = "gridOnOffToolStripMenuItem1";
-            this.gridOnOffToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.gridOnOffToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.gridOnOffToolStripMenuItem1.Text = "Grid On/Off";
             // 
-            // toroidalGridToolStripMenuItem1
+            // ToroidalRClick
             // 
-            this.toroidalGridToolStripMenuItem1.Name = "toroidalGridToolStripMenuItem1";
-            this.toroidalGridToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
-            this.toroidalGridToolStripMenuItem1.Text = "Toroidal Grid";
+            this.ToroidalRClick.Name = "ToroidalRClick";
+            this.ToroidalRClick.Size = new System.Drawing.Size(180, 22);
+            this.ToroidalRClick.Text = "Toroidal Grid";
             // 
-            // finiteGridToolStripMenuItem
+            // FiniteRClick
             // 
-            this.finiteGridToolStripMenuItem.Name = "finiteGridToolStripMenuItem";
-            this.finiteGridToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.finiteGridToolStripMenuItem.Text = "Finite Grid";
+            this.FiniteRClick.Name = "FiniteRClick";
+            this.FiniteRClick.Size = new System.Drawing.Size(180, 22);
+            this.FiniteRClick.Text = "Finite Grid";
             // 
             // graphicsPanel1
             // 
@@ -604,12 +612,6 @@ namespace GOLStartUpTemplate1
             this.graphicsPanel1.TabIndex = 3;
             this.graphicsPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.graphicsPanel1_Paint);
             this.graphicsPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.graphicsPanel1_MouseClick);
-            // 
-            // LivingCells
-            // 
-            this.LivingCells.Name = "LivingCells";
-            this.LivingCells.Size = new System.Drawing.Size(130, 17);
-            this.LivingCells.Text = "Current Living Cells = 0";
             // 
             // Form1
             // 
@@ -679,8 +681,8 @@ namespace GOLStartUpTemplate1
         private System.Windows.Forms.ToolStripMenuItem heighborCountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridOnOffToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toroidalGridToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem finniteGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToroidalGrid;
+        private System.Windows.Forms.ToolStripMenuItem FiniteGrid;
         private System.Windows.Forms.ToolStripMenuItem runGOLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
@@ -698,8 +700,8 @@ namespace GOLStartUpTemplate1
         private System.Windows.Forms.ToolStripMenuItem hUDOnOffToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem neighborCountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gridOnOffToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toroidalGridToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem finiteGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToroidalRClick;
+        private System.Windows.Forms.ToolStripMenuItem FiniteRClick;
         private System.Windows.Forms.ToolStripMenuItem RandoTime;
         private System.Windows.Forms.ToolStripMenuItem RandoSeed;
         private System.Windows.Forms.ToolStripStatusLabel LivingCells;
