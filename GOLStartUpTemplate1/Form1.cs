@@ -16,8 +16,8 @@ namespace GOLStartUpTemplate1
     public partial class Form1 : Form
     {
         // The universe array
-        bool[,] universe = new bool[50, 50];
-        bool[,] scratchPad = new bool[50, 50];
+        bool[,] universe = new bool[30, 30];
+        bool[,] scratchPad = new bool[30, 30];
         int uWidth;
         int uHeight;
         int rando;
@@ -157,9 +157,41 @@ namespace GOLStartUpTemplate1
 
                     // Outline the cell with a pen
                     e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+
+                    Font font = new Font("Arial", 7f);
+
+                    StringFormat stringFormat = new StringFormat();
+                    stringFormat.Alignment = StringAlignment.Center;
+                    stringFormat.LineAlignment = StringAlignment.Center;                    
+                    if (NeighborCountOn)
+                    {
+                        int group;
+                        if (isFinite)
+                        {
+                            group = CountNeighborsFinite(x, y);
+                        }
+                        else
+                        {
+                            group = CountNeighborsToroidal(x, y);
+                        }
+                        e.Graphics.DrawString(group.ToString(), font, Brushes.Red, cellRect, stringFormat);
+                    }
+                    //if (!NeighborCountOn)
+                    //{
+                    //    int group;
+                    //    if (isFinite)
+                    //    {
+                    //        group = CountNeighborsFinite(x, y);
+                    //    }
+                    //    else
+                    //    {
+                    //        group = CountNeighborsToroidal(x, y);
+                    //    }
+                    //    //e.Graphics.DrawString(group.ToString(), font, Brushes.Red, cellRect, stringFormat);
+                    //}
                 }
             }
-
+            
             // Cleaning up pens and brushes
             gridPen.Dispose();
             cellBrush.Dispose();
@@ -729,42 +761,15 @@ namespace GOLStartUpTemplate1
         #endregion
 
         #region Cell Neighbor Count
-        private void heighborCountsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NeighborCountOn = true;            
-        }
 
-        private void ViewNeighborCount(object sender, PaintEventArgs e)
-        {
-            if (NeighborCountOn == true)
-            {
-                Font font = new Font("Arial", 3f);
-
-                StringFormat stringFormat = new StringFormat();
-                stringFormat.Alignment = StringAlignment.Center;
-                stringFormat.LineAlignment = StringAlignment.Center;
-
-                Rectangle cellRect = new Rectangle(0, 0, 100, 100);
-                for (int y = 0; y < universe.GetLength(1); y++)
-                {
-                    for (int x = 0; x < universe.GetLength(0); x++)
-                    {
-                        int group;
-                        if (isFinite)
-                        {
-                            group = CountNeighborsFinite(x, y);
-                        }
-                        else
-                        {
-                            group = CountNeighborsToroidal(x, y);
-                        }
-                        e.Graphics.DrawString(group.ToString(), font, Brushes.Black, cellRect, stringFormat);
-                    }
-                }
-            }
-            
-        }
         #endregion
 
+        private void heighborCountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (NeighborCountOn == false)
+            {
+                
+            }
+        }
     }
 }
