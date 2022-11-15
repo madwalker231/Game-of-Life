@@ -56,7 +56,7 @@ namespace GOLStartUpTemplate1
             bool[,] tempGrid2 = new bool[uWidth, uHeight];
             universe = tempGrid;
             scratchPad = tempGrid2;
-            //optionsMenu.TimerSetting = Properties.Settings.Default.TimeSet;
+            timer.Interval = Properties.Settings.Default.TimeSet;
         }
         #region Next Gen Logic
         // Calculate the next generation of cells
@@ -303,6 +303,7 @@ namespace GOLStartUpTemplate1
             gridColor = Properties.Settings.Default.GridColor;
             uHeight = Properties.Settings.Default.GridHeight;
             uWidth = Properties.Settings.Default.GridWidth;
+            timer.Interval = Properties.Settings.Default.TimeSet;
             bool[,] resetGrid = new bool[uWidth, uHeight];
             bool[,] resetGrid2 = new bool[uWidth, uHeight];
             universe = resetGrid;
@@ -529,7 +530,7 @@ namespace GOLStartUpTemplate1
             Properties.Settings.Default.GridColor = gridColor;
             Properties.Settings.Default.GridHeight = uHeight;
             Properties.Settings.Default.GridWidth = uWidth;
-            //Properties.Settings.Default.TimeSet = TimerSetting;
+            Properties.Settings.Default.TimeSet = timer.Interval;
             Properties.Settings.Default.Save();
         }
         #endregion
