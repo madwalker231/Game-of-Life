@@ -206,6 +206,7 @@ namespace GOLStartUpTemplate1
             // heighborCountsToolStripMenuItem
             // 
             this.heighborCountsToolStripMenuItem.Checked = true;
+            this.heighborCountsToolStripMenuItem.CheckOnClick = true;
             this.heighborCountsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.heighborCountsToolStripMenuItem.Name = "heighborCountsToolStripMenuItem";
             this.heighborCountsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);

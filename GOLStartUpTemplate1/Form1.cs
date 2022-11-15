@@ -766,10 +766,17 @@ namespace GOLStartUpTemplate1
 
         private void heighborCountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (NeighborCountOn == false)
+            if (NeighborCountOn)
             {
-                
+                heighborCountsToolStripMenuItem.Checked = false;
+                NeighborCountOn = false;
             }
+            else
+            {
+                heighborCountsToolStripMenuItem.Checked = true;
+                NeighborCountOn = true;
+            }
+            graphicsPanel1.Invalidate();
         }
     }
 }
