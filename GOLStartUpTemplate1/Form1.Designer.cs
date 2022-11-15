@@ -199,9 +199,13 @@ namespace GOLStartUpTemplate1
             // 
             // hUDOnOffToolStripMenuItem
             // 
+            this.hUDOnOffToolStripMenuItem.Checked = true;
+            this.hUDOnOffToolStripMenuItem.CheckOnClick = true;
+            this.hUDOnOffToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.hUDOnOffToolStripMenuItem.Name = "hUDOnOffToolStripMenuItem";
             this.hUDOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hUDOnOffToolStripMenuItem.Text = "HUD On/Off";
+            this.hUDOnOffToolStripMenuItem.Click += new System.EventHandler(this.hUDOnOffToolStripMenuItem_Click);
             // 
             // heighborCountsToolStripMenuItem
             // 
@@ -215,9 +219,13 @@ namespace GOLStartUpTemplate1
             // 
             // gridOnOffToolStripMenuItem
             // 
+            this.gridOnOffToolStripMenuItem.Checked = true;
+            this.gridOnOffToolStripMenuItem.CheckOnClick = true;
+            this.gridOnOffToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.gridOnOffToolStripMenuItem.Name = "gridOnOffToolStripMenuItem";
             this.gridOnOffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridOnOffToolStripMenuItem.Text = "Grid On/Off";
+            this.gridOnOffToolStripMenuItem.Click += new System.EventHandler(this.gridOnOffToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -234,7 +242,9 @@ namespace GOLStartUpTemplate1
             // 
             // FiniteGrid
             // 
+            this.FiniteGrid.Checked = true;
             this.FiniteGrid.CheckOnClick = true;
+            this.FiniteGrid.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FiniteGrid.Name = "FiniteGrid";
             this.FiniteGrid.Size = new System.Drawing.Size(180, 22);
             this.FiniteGrid.Text = "Finite Grid";

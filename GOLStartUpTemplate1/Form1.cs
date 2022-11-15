@@ -24,6 +24,9 @@ namespace GOLStartUpTemplate1
         int aliveCells;
         bool isFinite = true;
         bool NeighborCountOn = true;
+        bool HUD = true;
+        Color hud = Color.DarkBlue;
+        bool isGridOn = true;
 
         // Drawing colors
         Color gridColor = Color.Black;
@@ -66,7 +69,7 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     int neighbor;
-                    if(isFinite)
+                    if (isFinite)
                     {
                         neighbor = CountNeighborsFinite(x, y);
                     }
@@ -75,7 +78,7 @@ namespace GOLStartUpTemplate1
                         neighbor = CountNeighborsToroidal(x, y);
                     }
                     bool currentCell = universe[x, y];
-                    
+
                     if (currentCell == true && neighbor < 2)
                     {
                         scratchPad.SetValue(false, x, y);
@@ -106,7 +109,7 @@ namespace GOLStartUpTemplate1
             toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
             LivingCell();
 
-            
+
             //call invalidate for play button.
             graphicsPanel1.Invalidate();
         }
@@ -156,13 +159,16 @@ namespace GOLStartUpTemplate1
                     }
 
                     // Outline the cell with a pen
-                    e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+                    if (isGridOn)
+                    {
+                        e.Graphics.DrawRectangle(gridPen, cellRect.X, cellRect.Y, cellRect.Width, cellRect.Height);
+                    }                    
 
                     Font font = new Font("Arial", 7f);
 
                     StringFormat stringFormat = new StringFormat();
                     stringFormat.Alignment = StringAlignment.Center;
-                    stringFormat.LineAlignment = StringAlignment.Center;                    
+                    stringFormat.LineAlignment = StringAlignment.Center;
                     if (NeighborCountOn)
                     {
                         int group;
@@ -176,22 +182,36 @@ namespace GOLStartUpTemplate1
                         }
                         e.Graphics.DrawString(group.ToString(), font, Brushes.Red, cellRect, stringFormat);
                     }
-                    //if (!NeighborCountOn)
-                    //{
-                    //    int group;
-                    //    if (isFinite)
-                    //    {
-                    //        group = CountNeighborsFinite(x, y);
-                    //    }
-                    //    else
-                    //    {
-                    //        group = CountNeighborsToroidal(x, y);
-                    //    }
-                    //    //e.Graphics.DrawString(group.ToString(), font, Brushes.Red, cellRect, stringFormat);
-                    //}
                 }
             }
-            
+            if(HUD)
+            {
+                Font hudFont = new Font("Arial", 14f);
+                Rectangle hudRect = new Rectangle(0, 0, 400, 400);
+                Brush hudDisplay = new SolidBrush(hud);
+                StringFormat hudFormat = new StringFormat();
+                hudFormat.Alignment = StringAlignment.Near;
+                hudFormat.LineAlignment = StringAlignment.Near;
+                StringBuilder hudStrings = new StringBuilder();
+                hudStrings.AppendFormat($"Generation: {generations}");
+                hudStrings.AppendLine();
+                hudStrings.AppendFormat($"Alive Cells: {LivingCell()}");
+                hudStrings.AppendLine();
+                if(isFinite)
+                {
+                    hudStrings.AppendFormat("Boundry: Finite");
+                }
+                else
+                {
+                    hudStrings.AppendFormat($"Boundry: Torodial");
+                }
+                hudStrings.AppendLine();
+                hudStrings.AppendFormat($"Cell Width: {uWidth}");
+                hudStrings.AppendLine();
+                hudStrings.AppendFormat($"Cell Height: {uHeight}");
+                e.Graphics.DrawString(hudStrings.ToString(), hudFont, hudDisplay, hudRect, hudFormat);
+                hudFormat.Dispose();
+            }
             // Cleaning up pens and brushes
             gridPen.Dispose();
             cellBrush.Dispose();
@@ -449,7 +469,7 @@ namespace GOLStartUpTemplate1
         {
             ColorDialog colorDialog = new ColorDialog();
             colorDialog.Color = graphicsPanel1.BackColor;
-            if ( DialogResult.OK == colorDialog.ShowDialog())
+            if (DialogResult.OK == colorDialog.ShowDialog())
             {
                 graphicsPanel1.BackColor = colorDialog.Color;
                 graphicsPanel1.Invalidate();
@@ -467,7 +487,7 @@ namespace GOLStartUpTemplate1
                 graphicsPanel1.Invalidate();
             }
         }
-        
+
         private void cellColorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
@@ -523,7 +543,7 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     randy.Next(0, 2);
-                    if(randy.Next() == 0) 
+                    if (randy.Next() == 0)
                     {
                         graphicsPanel1.Invalidate();
                     }
@@ -540,7 +560,7 @@ namespace GOLStartUpTemplate1
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
                     a = randyTime.Next(0, 2);
-                    if (a == 0) 
+                    if (a == 0)
                     {
                         universe.SetValue(true, x, y);
                     }
@@ -552,7 +572,7 @@ namespace GOLStartUpTemplate1
             }
         }
 
-        private void RandomSeed ()
+        private void RandomSeed()
         {
             Random randySeed = new Random(rando);
             int a;
@@ -583,7 +603,7 @@ namespace GOLStartUpTemplate1
         {
             RandomBox seeds = new RandomBox();
             seeds.Random = rando;
-            if (DialogResult.OK == seeds.ShowDialog()) 
+            if (DialogResult.OK == seeds.ShowDialog())
             {
                 rando = seeds.Random;
                 RandomSeed();
@@ -670,7 +690,7 @@ namespace GOLStartUpTemplate1
 
                     // If the row begins with '!' then it is a comment
                     // and should be ignored.
-                    if(row.StartsWith("!"))
+                    if (row.StartsWith("!"))
                     {
                         continue;
                     }
@@ -704,7 +724,7 @@ namespace GOLStartUpTemplate1
 
                     // If the row begins with '!' then
                     // it is a comment and should be ignored.
-                    if (row.StartsWith("!")) 
+                    if (row.StartsWith("!"))
                     {
                         continue;
                     }
@@ -739,14 +759,14 @@ namespace GOLStartUpTemplate1
         #endregion
 
         #region Cell Count
-        private void LivingCell()
+        private int LivingCell()
         {
             int livingCell = aliveCells;
             for (int y = 0; y < universe.GetLength(1); y++)
             {
                 for (int x = 0; x < universe.GetLength(0); x++)
                 {
-                    if (universe[x,y] == true)
+                    if (universe[x, y] == true)
                     {
                         livingCell++;
                     }
@@ -755,15 +775,13 @@ namespace GOLStartUpTemplate1
             aliveCells = livingCell;
             LivingCells.Text = "Current Living Cells = " + aliveCells.ToString();
             aliveCells = aliveCells - aliveCells;
+            return livingCell;
         }
 
 
         #endregion
 
         #region Cell Neighbor Count
-
-        #endregion
-
         private void heighborCountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (NeighborCountOn)
@@ -778,5 +796,41 @@ namespace GOLStartUpTemplate1
             }
             graphicsPanel1.Invalidate();
         }
+        #endregion
+
+        #region HUD
+        private void hUDOnOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(HUD)
+            {
+                hUDOnOffToolStripMenuItem.Checked = false;
+                HUD = false;
+            }
+            else
+            {
+                hUDOnOffToolStripMenuItem.Checked = true;
+                HUD = true;
+            }
+            graphicsPanel1.Invalidate();
+        }
+        #endregion
+
+        #region Grid ON/OFF
+        private void gridOnOffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(isGridOn)
+            {
+                gridOnOffToolStripMenuItem.Checked = false;
+                isGridOn = false;
+            }
+            else
+            {
+                gridOnOffToolStripMenuItem.Checked = true;
+                isGridOn = true;
+            }
+            graphicsPanel1.Invalidate();
+        }
+        #endregion
+        
     }
 }
